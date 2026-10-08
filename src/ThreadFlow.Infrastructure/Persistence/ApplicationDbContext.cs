@@ -94,8 +94,9 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
         modelBuilder.Entity<ProductionLine>(b =>
         {
             b.HasIndex(x => new { x.TenantId, x.SectionId, x.Code }).IsUnique();
-            b.Property(x => x.TargetEfficiencyPercentage).HasPrecision(5, 2);
+            b.Property(x => x.TargetEfficiency).HasPrecision(5, 2);
         });
+
 
         modelBuilder.Entity<User>(b =>
         {

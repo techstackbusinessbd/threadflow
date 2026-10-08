@@ -103,8 +103,8 @@
     - [x] টেবিল ৫: `buildings` (Approved & Domain Updated)
     - [x] টেবিল ৬: `floors` (Approved & Domain Updated)
     - [x] টেবিল ৭: `sections` (Approved & Domain Updated)
-    - [ ] টেবিল ৮: `production_lines` (Next)
-    - [ ] টেবিল ৯: `users`
+    - [x] টেবিল ৮: `production_lines` (Approved & Domain Updated)
+    - [ ] টেবিল ৯: `users` (Next)
     - [ ] টেবিল ১০: `roles`
     - [ ] টেবিল ১১: `permissions`
     - [ ] টেবিল ১২: `role_permissions`
@@ -114,7 +114,7 @@
   - **Sub-step 2.4.3**: ডকার PostgreSQL কনটেইনারে মাইগ্রেশন রান ও ফিজিক্যাল টেবিল ভেরিফিকেশন
   - **Sub-step 2.4.4**: সিডিং ফ্রেমওয়ার্ক: রুট টেন্যান্ট (`Apex Group`), সিস্টেম সুপার অ্যাডমিন, কারেন্সি, UOM ও ডাইনামিক পারমিশন স্ক্যানার (`SystemBootstrapSeeder` vs `DevelopmentDemoSeeder` উইথ `SeedDemoData` ফ্ল্যাগ)
   - *DoD*: ডেটাবেজে স্কিমা তৈরি ও সফল সিডিং ভেরিফিকেশন (ভেরিফাইড ইন রানিং কনটেইনার)।
-  - **Status**: `[/] IN PROGRESS (Sub-step 2.4.1 Active: 7/14 Tables Approved)`
+  - **Status**: `[/] IN PROGRESS (Sub-step 2.4.1 Active: 8/14 Tables Approved)`
 
 - [ ] **Step 2.5**: **WebApi হোস্ট পাইপলাইন ও সিকিউরিটি মিডলওয়্যার কনফিগারেশন**
   - `TenantResolutionMiddleware` (`X-Tenant-Id` ও Subdomain রিজলভার)
