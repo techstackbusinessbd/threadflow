@@ -111,11 +111,11 @@
     - [x] টেবিল ১৩: `user_roles` (Approved & Domain Updated)
     - [x] টেবিল ১৪: `user_data_scopes` (Approved & Domain Updated)
   - **Sub-step 2.4.1 স্ট্যাটাস**: `✅ COMPLETED & SIGNED OFF (All 14 Core Tables Approved by CTO)`
-  - **Sub-step 2.4.2**: প্রথম মাইগ্রেশন জেনারেশন: `Initial_Core_Topology_And_Tenancy` (EF Core Code-First)
-  - **Sub-step 2.4.3**: ডকার PostgreSQL কনটেইনারে মাইগ্রেশন রান ও ফিজিক্যাল টেবিল ভেরিফিকেশন
-  - **Sub-step 2.4.4**: সিডিং ফ্রেমওয়ার্ক: রুট টেন্যান্ট (`Apex Group`), সিস্টেম সুপার অ্যাডমিন, কারেন্সি, UOM ও ডাইনামিক পারমিশন স্ক্যানার (`SystemBootstrapSeeder` vs `DevelopmentDemoSeeder` উইথ `SeedDemoData` ফ্ল্যাগ)
+  - [x] **Sub-step 2.4.2**: প্রথম মাইগ্রেশন জেনারেশন: `Initial_Core_Topology_And_Tenancy` (EF Core Code-First) `[✅ COMPLETED]`
+  - [ ] **Sub-step 2.4.3**: ডকার PostgreSQL কনটেইনারে মাইগ্রেশন রান ও ফিজিক্যাল টেবিল ভেরিফিকেশন `[NEXT]`
+  - [ ] **Sub-step 2.4.4**: সিডিং ফ্রেমওয়ার্ক: রুট টেন্যান্ট (`Apex Group`), সিস্টেম সুপার অ্যাডমিন, কারেন্সি, UOM ও ডাইনামিক পারমিশন স্ক্যানার (`SystemBootstrapSeeder` vs `DevelopmentDemoSeeder` উইথ `SeedDemoData` ফ্ল্যাগ)
   - *DoD*: ডেটাবেজে স্কিমা তৈরি ও সফল সিডিং ভেরিফিকেশন (ভেরিফাইড ইন রানিং কনটেইনার)।
-  - **Status**: `[/] IN PROGRESS (Sub-step 2.4.1 Done -> Awaiting Boss's signal for Sub-step 2.4.2 Migration)`
+  - **Status**: `[/] IN PROGRESS (Sub-step 2.4.2 Done -> Ready for Sub-step 2.4.3 DB Update)`
 
 - [ ] **Step 2.5**: **WebApi হোস্ট পাইপলাইন ও সিকিউরিটি মিডলওয়্যার কনফিগারেশন**
   - `TenantResolutionMiddleware` (`X-Tenant-Id` ও Subdomain রিজলভার)
