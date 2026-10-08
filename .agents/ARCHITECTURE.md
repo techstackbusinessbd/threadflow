@@ -80,10 +80,11 @@
 11. **ক্লিন ফাইল ও ফোল্ডার নেমিং**: কোনো রোবোটিক বা অটো-জেনারেটেড নাম নয়; ইন্ডাস্ট্রি স্ট্যান্ডার্ড আর্কিটেকচারাল নাম (`ThreadFlow.Domain`, `ThreadFlow.WebApi`, `apps/web/features/merchandising`).
 12. **নিট, ক্লিন ও আল্ট্রা ইউজার-ফ্রেন্ডলি UI/UX**: মিনিমালিস্ট ডিজাইন, প্রফেশনাল হোয়াইটস্পেস, ডার্ক/লাইট মোড ও চোখের আরামদায়ক এন্টারপ্রাইজ কালার প্যালেট।
 13. **কোডে বাধ্যতামূলক সহজ বাংলা কমেন্ট ও মেইনটেইনেবিলিটি রুল (Mandatory Clear Bangla Code Comments Law)**: কোড এবং ভ্যারিয়েবল আন্তর্জাতিক স্ট্যান্ডার্ডে পরিষ্কার ইংরেজিতে লেখা হবে, কিন্তু কোডের প্রতিটি ক্লাস, ইন্টারফেস, মেথড, বিজনেস ক্যালকুলেশন এবং জটিল ব্লকে **বাধ্যতামূলক সহজ ও প্রাঞ্জল বাংলায় কমেন্ট** লিখতে হবে। কমেন্ট এমন সহজ ও তথ্যবহুল হতে হবে যাতে যেকোনো নতুন বা জুনিয়র/মিড-লেভেল ডেভেলপার এক নজরেই লজিক বুঝতে পারে এবং দীর্ঘমেয়াদে সিস্টেম কোনো ঝামেলা ছাড়াই মেইনটেইন করতে পারে।
+14. **টেবিলের বিজনেস কলামে বাধ্যতামূলক সিটিও অ্যাপ্রুভাল নীতি (Mandatory CTO Approval for Business Columns)**: ডেটাবেজ টেবিলের সিস্টেম রিকোয়ার্ড কলাম (`Id`, `TenantId`, `CreatedAt`, `CreatedBy`, `UpdatedAt`, `UpdatedBy`, `IsDeleted`, `DeletedAt`, `Version`, `IsDemo`) ছাড়া—যেকোনো টেবিলের বিজনেস/ডোমেইন কলাম কী কী হবে, তা মাইগ্রেশন করার পূর্বে বাধ্যতামূলকভাবে বস (CTO)-এর সামনে উপস্থাপন করে অ্যাপ্রুভাল নিতে হবে।
 
 ---
-84: 
-85: ## 5. Official Architectural & Technical Documentation Index
+
+## 5. Official Architectural & Technical Documentation Index
 86: - [01. Vision, Mission & Core Logics](file:///g:/ERP/rmg-erp/threadflow/docs/vision-mission-and-core-logic.md)
 87: - [02. Technology Benchmark & Rationale](file:///g:/ERP/rmg-erp/threadflow/docs/02-technology-stack-benchmark-and-comparative-analysis.md)
 88: - [03. Development Standards & Rules](file:///g:/ERP/rmg-erp/threadflow/docs/03-development-rules-and-engineering-standards.md)
