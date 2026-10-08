@@ -1,0 +1,18 @@
+# ==============================================================================
+# ThreadFlow ERP - Backend Development Dockerfile (.NET SDK Alpine)
+# Enables containerized live development with `dotnet watch` hot reloading
+# ==============================================================================
+
+FROM mcr.microsoft.com/dotnet/sdk:9.0-alpine
+
+WORKDIR /app
+
+# Support Windows Docker volume mounts with polling file watcher
+ENV DOTNET_USE_POLLING_FILE_WATCHER=true
+ENV ASPNETCORE_ENVIRONMENT=Development
+ENV ASPNETCORE_URLS=http://+:5000
+
+EXPOSE 5000
+
+# Execute dotnet watch targeting the WebApi host project
+CMD ["dotnet", "watch", "--project", "src/ThreadFlow.WebApi/ThreadFlow.WebApi.csproj", "run", "--non-interactive"]
