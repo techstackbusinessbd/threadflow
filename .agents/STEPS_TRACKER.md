@@ -79,19 +79,20 @@
   - *DoD*: সলিউশন জিরো এরর ও জিরো ওয়ার্নিংয়ে বিল্ড হতে হবে (ভেরিফাইড: `0 Warning(s), 0 Error(s)` in `00:00:11.13`).
   - **Status**: `✅ COMPLETED & VERIFIED (Clean Architecture .sln fully compiled)`
 
-- [ ] **Step 2.2**: **মাল্টি-টেন্যান্সি ও অর্গানাইজেশনাল কোর ডোমেন এনটিটি মডেলিং**
+- [x] **Step 2.2**: **মাল্টি-টেন্যান্সি ও অর্গানাইজেশনাল কোর ডোমেন এনটিটি মডেলিং**
   - `Tenant`, `Company`, `BusinessUnit`, `Factory`, `Building`, `Floor`, `Section`, `ProductionLine`
-  - `AuditableEntity` (Base entity with UUIDv7, Timestamps, Concurrency Token)
+  - `AuditableEntity` (Base entity with UUIDv7, Timestamps, Concurrency Token, `IsDemo` flag)
   - `ITenantScopedEntity` ইন্টারফেস।
-  - *DoD*: ডোমেন এনটিটি ভ্যালিডেশন এবং ইউনিট টেস্ট পাস।
-  - **Status**: `🔒 LOCKED (Awaiting Boss's signal to start Step 2.2)`
+  - সিকিউরিটি এনটিটিজ: `User`, `Role`, `Permission`, `RolePermission`, `UserRole`, `UserDataScope`
+  - *DoD*: ডোমেন এনটিটি ভ্যালিডেশন এবং সলিউশন জিরো এররে বিল্ড হওয়া (ভেরিফাইড: `0 Warning(s), 0 Error(s)`).
+  - **Status**: `✅ COMPLETED & VERIFIED (All Core Entities & Multi-Tenancy Models Compiled)`
 
 - [ ] **Step 2.3**: **EF Core 10 `ApplicationDbContext` ও গ্লোবাল কোয়েরি ফিল্টার সেটআপ**
-  - `TenantId` ও `DataScope` গ্লোবাল কোয়েরি ফিল্টার ইনজেকশন।
+  - `TenantId`, `IsDeleted`, এবং `IsDemo` গ্লোবাল কোয়েরি ফিল্টার ইনজেকশন।
   - `TenantInterceptor` ও `AuditableEntityInterceptor`।
   - Dapper হাই-স্পিড কুয়েরি হেল্পার।
-  - *DoD*: মাল্টি-টেন্যান্ট আইসোলেশন ইন্টারসেপ্টর টেস্ট সফল।
-  - **Status**: `🔒 LOCKED (Blocked by Step 2.2)`
+  - *DoD*: মাল্টি-টেন্যান্ট আইসোলেশন ইন্টারসেপ্টর ও ডিবি কনটেক্সট টেস্ট সফল।
+  - **Status**: `🔒 LOCKED (Awaiting Boss's signal to start Step 2.3)`
 
 - [ ] **Step 2.4**: **ইনিশিয়াল ডেটাবেজ মাইগ্রেশন ও বেস সিডিং ফ্রেমওয়ার্ক**
   - প্রথম মাইগ্রেশন জেনারেশন: `Initial_Core_Topology_And_Tenancy`
