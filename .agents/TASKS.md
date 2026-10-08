@@ -65,9 +65,9 @@
   - [x] Log Discussion 022: SaaS-Ready Hybrid Multi-Tenancy Architecture Finalization (`threadflow/discussions/022-saas-ready-hybrid-multitenancy-architecture.md`)
   - [x] **100% Docker-Containerized Architecture & Zero Host Pollution Mandate**: Defined 7-service full-stack compose (`postgres`, `redis`, `keycloak`, `minio`, `mailpit`, `backend`, `frontend`) with zero local PC host dependencies and live volume hot reloading
   - [x] Log Discussion 023: 100% Docker-Containerized Architecture Lock (`threadflow/discussions/023-100-percent-docker-containerized-development-lock.md`)
-- [ ] **Coding Phase (Awaiting CTO green signal after documentation finalization)**:
-  - [ ] Initialize Git repository & ignore rules
-  - [ ] Docker Compose Environment Orchestration (7-service full-stack compose)
+- [ ] **Coding Phase (Active - Sprint 1 Monorepo Bootstrapping)**:
+  - [x] Initialize Git repository, enterprise `.gitignore`, link remote origin (`https://github.com/techstackbusinessbd/threadflow.git`) & push initial baseline commit to `main`
+  - [ ] Docker Compose Environment Orchestration (7-service full-stack compose in `deploy/`)
   - [ ] C# .NET 10 Backend & React 19 Vite Frontend Solution Scaffolding
   - [ ] Database Schema Migrations & Base Seeding Framework
 
