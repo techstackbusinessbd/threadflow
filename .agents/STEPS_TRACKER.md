@@ -94,11 +94,27 @@
   - *DoD*: মাল্টি-টেন্যান্ট আইসোলেশন ইন্টারসেপ্টর ও ডিবি কনটেক্সট টেস্ট সফল (ভেরিফাইড: `0 Warning(s), 0 Error(s)`).
   - **Status**: `✅ COMPLETED & VERIFIED (ApplicationDbContext & Multi-Tenant Interceptors Active)`
 
-- [ ] **Step 2.4**: **ইনিশিয়াল ডেটাবেজ মাইগ্রেশন ও বেস সিডিং ফ্রেমওয়ার্ক**
-  - প্রথম মাইগ্রেশন জেনারেশন: `Initial_Core_Topology_And_Tenancy`
-  - রুট টেন্যান্ট (`Apex Group`), সুপার অ্যাডমিন ইউজার, কারেন্সি ও UOM মাস্টার ডেটা সিড (`SystemBootstrapSeeder` vs `DevelopmentDemoSeeder` উইথ `SeedDemoData` ফ্ল্যাগ)।
-  - *DoD*: ডেটাবেজে স্কিমা তৈরি ও সফল সিডিং ভেরিফিকেশন।
-  - **Status**: `🔒 LOCKED (Awaiting Boss's signal to start Step 2.4)`
+- [/] **Step 2.4**: **ইনিশিয়াল ডেটাবেজ মাইগ্রেশন ও বেস সিডিং ফ্রেমওয়ার্ক**
+  - **Sub-step 2.4.1**: *কোর টেবিলসমূহের বিজনেস কলাম রিভিউ ও সিটিও অনুমোদন (One-by-One Review)*
+    - [x] টেবিল ১: `tenants` (Approved & Domain Updated)
+    - [x] টেবিল ২: `companies` (Approved & Domain Updated)
+    - [x] টেবিল ৩: `business_units` (Approved & Domain Updated)
+    - [ ] টেবিল ৪: `factories` (Next)
+    - [ ] টেবিল ৫: `buildings`
+    - [ ] টেবিল ৬: `floors`
+    - [ ] টেবিল ৭: `sections`
+    - [ ] টেবিল ৮: `production_lines`
+    - [ ] টেবিল ৯: `users`
+    - [ ] টেবিল ১০: `roles`
+    - [ ] টেবিল ১১: `permissions`
+    - [ ] টেবিল ১২: `role_permissions`
+    - [ ] টেবিল ১৩: `user_roles`
+    - [ ] টেবিল ১৪: `user_data_scopes`
+  - **Sub-step 2.4.2**: প্রথম মাইগ্রেশন জেনারেশন: `Initial_Core_Topology_And_Tenancy` (EF Core Code-First)
+  - **Sub-step 2.4.3**: ডকার PostgreSQL কনটেইনারে মাইগ্রেশন রান ও ফিজিক্যাল টেবিল ভেরিফিকেশন
+  - **Sub-step 2.4.4**: সিডিং ফ্রেমওয়ার্ক: রুট টেন্যান্ট (`Apex Group`), সিস্টেম সুপার অ্যাডমিন, কারেন্সি, UOM ও ডাইনামিক পারমিশন স্ক্যানার (`SystemBootstrapSeeder` vs `DevelopmentDemoSeeder` উইথ `SeedDemoData` ফ্ল্যাগ)
+  - *DoD*: ডেটাবেজে স্কিমা তৈরি ও সফল সিডিং ভেরিফিকেশন (ভেরিফাইড ইন রানিং কনটেইনার)।
+  - **Status**: `[/] IN PROGRESS (Sub-step 2.4.1 Active: 3/14 Tables Approved)`
 
 - [ ] **Step 2.5**: **WebApi হোস্ট পাইপলাইন ও সিকিউরিটি মিডলওয়্যার কনফিগারেশন**
   - `TenantResolutionMiddleware` (`X-Tenant-Id` ও Subdomain রিজলভার)
