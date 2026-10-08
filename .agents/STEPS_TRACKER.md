@@ -60,16 +60,16 @@
   - *DoD*: সমস্ত কনফিগারেশন ফাইল ভ্যালিডেট করা এবং কোনো সিক্রেট লিক না থাকা।
   - **Status**: `✅ COMPLETED & VERIFIED (Syntax 100% Validated via docker compose config)`
 
-- [ ] **Step 1.2**: **ডকার ক্লাস্টার বুটস্ট্র্যাপ ও সার্ভিসেস হেলথ-চেক ভেরিফিকেশন**
-  - কমান্ড: `docker compose up -d`
+- [x] **Step 1.2**: **ডকার ক্লাস্টার বুটস্ট্র্যাপ ও সার্ভিসেস হেলথ-চেক ভেরিফিকেশন**
+  - কমান্ড: `docker compose up -d postgres redis keycloak minio mailpit`
   - পোস্টগ্রেস, রেডিস, কি-ক্লোক, মিনিও এবং মেইলপিট কন্টেইনার হেলথ ও পোর্ট বাইন্ডিং ভেরিফিকেশন।
-  - *DoD*: প্রতিটি সার্ভিস `healthy` স্ট্যাটাস প্রদর্শন করতে হবে।
-  - **Status**: `🔒 LOCKED (Blocked by Step 1.1)`
+  - *DoD*: প্রতিটি সার্ভিস `healthy` ও সচল থাকতে হবে (ভেরিফাইড: PostgreSQL 16 UUIDv7 টেস্টেড, Redis PONG, Keycloak realm imported, MinIO ready, Mailpit online)।
+  - **Status**: `✅ COMPLETED & VERIFIED (All 5 containers running healthy & responsive)`
 
 ---
 
 ### ⚡ PHASE 2: .NET 10 ব্যাকএন্ড সলিউশন স্কাফোল্ডিং (Clean Architecture)
-> **স্ট্যাটাস**: `🔒 LOCKED` | **দায়িত্বে**: ⚡ আসিফ (Backend Lead) & 🏛️ তানভীর (Architect)
+> **স্ট্যাটাস**: `🔒 READY FOR CTO APPROVAL` | **দায়িত্বে**: ⚡ আসিফ (Backend Lead) & 🏛️ তানভীর (Architect)
 
 - [ ] **Step 2.1**: **Clean Architecture সলিউশন কাঠামো তৈরি (`src/ThreadFlow.sln`)**
   - `ThreadFlow.Domain` (Core Entities, Value Objects, Domain Events, Enums)
@@ -77,7 +77,7 @@
   - `ThreadFlow.Infrastructure` (EF Core 10, Dapper, PostgreSQL, Redis, MinIO, Keycloak)
   - `ThreadFlow.WebApi` (ASP.NET Core REST API, Middlewares, SignalR Hubs)
   - *DoD*: সলিউশন জিরো এরর ও জিরো ওয়ার্নিংয়ে বিল্ড হতে হবে।
-  - **Status**: `🔒 LOCKED (Blocked by Phase 1)`
+  - **Status**: `🔒 LOCKED (Awaiting Boss's signal to start Step 2.1)`
 
 - [ ] **Step 2.2**: **মাল্টি-টেন্যান্সি ও অর্গানাইজেশনাল কোর ডোমেন এনটিটি মডেলিং**
   - `Tenant`, `Company`, `BusinessUnit`, `Factory`, `Building`, `Floor`, `Section`, `ProductionLine`
@@ -149,7 +149,7 @@
 | ফেজ নম্বর | ফেজের বিবরণ | স্ট্যাটাস | দায়িত্বপ্রাপ্ত লিড |
 | :---: | :--- | :---: | :---: |
 | **Phase 0** | আর্কিটেকচার, স্পেক্স ও গিট ইনিশিয়ালাইজেশন | `✅ DONE` | পুরো টিম |
-| **Phase 1** | ১০০% ডকার ক্লাস্টার কনফিগারেশন (`deploy/`) | `🔒 LOCKED` | 🚀 কবীর |
+| **Phase 1** | ১০০% ডকার ক্লাস্টার কনফিগারেশন (`deploy/`) | `✅ DONE` | 🚀 কবীর |
 | **Phase 2** | .NET 10 ব্যাকএন্ড সলিউশন (Clean Architecture) | `🔒 LOCKED` | ⚡ আসিফ |
 | **Phase 3** | React 19 Vite ফ্রন্টএন্ড SPA (`apps/web`) | `🔒 LOCKED` | 🎨 সজীব |
 | **Phase 4** | অথেন্টিকেশন ও ৭-লেয়ার ডেটা স্কোপ ইঞ্জিন | `🔒 LOCKED` | 🛡️ মায়া & ⚡ আসিফ |
