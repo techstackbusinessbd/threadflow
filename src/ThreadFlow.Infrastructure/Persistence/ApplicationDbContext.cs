@@ -86,6 +86,11 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
             b.Property(x => x.UsableAreaSqft).HasPrecision(12, 2);
         });
 
+        modelBuilder.Entity<Section>(b =>
+        {
+            b.HasIndex(x => new { x.TenantId, x.FloorId, x.Code }).IsUnique();
+        });
+
         modelBuilder.Entity<ProductionLine>(b =>
         {
             b.HasIndex(x => new { x.TenantId, x.SectionId, x.Code }).IsUnique();
