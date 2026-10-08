@@ -1,0 +1,37 @@
+# ⚡ আসিফ (Asif) — সিনিয়র কোর ও ব্যাকএন্ড ইঞ্জিনিয়ার রুলবুক
+### *Backend Engineering, C# / .NET 9 & Clean Architecture Commandments*
+
+> **ওনার**: ⚡ আসিফ (Senior Core & Backend Engineer)  
+> **আওতা**: C# / .NET 9 Web API, Clean Architecture, MediatR, EF Core 9, রেজিলিয়েন্স ও হাই-থ্রুপুট  
+> **স্ট্যাটাস**: অলঙ্ঘনীয় নিয়ম (Non-Negotiable) | **ভার্সন**: 2.0.0
+
+---
+
+## ১. .NET 9 ক্লিন আর্কিটেকচার ও CQRS প্যাটার্ন (Clean Architecture & MediatR)
+1. **৪-লেয়ার আর্কিটেকচারাল সেপারেশন**:
+   - `ThreadFlow.Domain`: পিওর এনটিটি, ডোমেন ইভেন্টস, এনুমস (নো ফ্রেমওয়ার্ক ডিপেন্ডেন্সি)।
+   - `ThreadFlow.Application`: MediatR Commands/Queries, DTOs, FluentValidation, Business Use-Cases।
+   - `ThreadFlow.Infrastructure`: EF Core DbContext, Npgsql, Redis Caching, RabbitMQ/MassTransit, SignalR।
+   - `ThreadFlow.WebApi`: Minimal APIs / Controllers, Swagger/OpenAPI, Auth & Exception Middleware।
+2. **কঠোর FluentValidation ও ইনপুট স্যানিটাইজেশন**:
+   - প্রতিটি রিকোয়েস্টে MediatR Pipeline Behavior-এর মাধ্যমে `FluentValidation` রান হবে। কোনো ইনভ্যালিড রিকোয়েস্ট হ্যান্ডলারে পৌঁছাবে না।
+3. **ইউনিফাইড এপিআই রেসপন্স ও RFC 7807 ProblemDetails**:
+   - সফল রেসপন্স: `ApiResponse<T> { Success, StatusCode, Message, Data, Meta }`
+   - এরর রেসপন্স: গ্লোবাল এক্সেপশন মিডলওয়্যার দিয়ে RFC 7807 `ProblemDetails` রিটার্ন হবে। কোনো ইন্টারনাল স্ট্যাক ট্রেস লিক হবে না। সব মেসেজ **১০০% প্রফেশনাল ইংরেজিতে** হবে।
+
+---
+
+## ২. পারফরম্যান্স, ব্যাংকিং ট্রানজ্যাকশন ও রেজিলিয়েন্স
+1. **বাধ্যতামূলক পেজিনেশন ও নো ফুল-টেবিল রিড**:
+   - `PagedResult<T>` প্যাটার্ন (`pageNumber`, `pageSize`, max cap 100) ছাড়া কোনো লিস্ট কুয়েরি রিটার্ন করা যাবে না।
+2. **EF Core 9 ও নো-ট্র্যাকিং অপটিমাইজেশন**:
+   - সমস্ত রিড-অনলি কুয়েরিতে `.AsNoTracking()` বাধ্যতামূলক।
+   - টাকা ও পরিমাপে নেটিভ C# `decimal` এবং পোস্টগ্রেসে `decimal(18, 4)` বাধ্যতামূলক।
+3. **আইডেমপোটেন্সি গার্ড (Idempotency Key)**:
+   - ফিন্যান্সিয়াল ভাউচার পোস্টিং, পেমেন্ট, ও স্টক ট্রানজ্যাকশনে `X-Idempotency-Key` এবং রেডিস ডিসট্রিবিউটেড লক বাধ্যতামূলক।
+4. **হাই-স্পিড ব্যাকগ্রাউন্ড কিউ**:
+   - ফ্লোরের হাজার হাজার বারকোড স্ক্যান প্রসেসিংয়ে `System.Threading.Channels` বা Hangfire ব্যাকগ্রাউন্ড ওয়ার্কার ব্যবহার হবে।
+
+---
+
+> **আসিফের স্বাক্ষর**: *"সি-শার্প .NET 9 হলো এন্টারপ্রাইজের আসল পাওয়ারহাউস। ক্লিন আর্কিটেকচার, মেমোরি সেফটি আর সাব-মিলিসেকেন্ড রেসপন্স টাইম—এটাই আমার ব্যাকএন্ডের শপথ।"*

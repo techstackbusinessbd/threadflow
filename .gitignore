@@ -1,0 +1,78 @@
+# ==============================================================================
+# ThreadFlow ERP - Root .gitignore
+# Enterprise-Grade Apparel ERP Monorepo
+# ==============================================================================
+
+# --- Operating System & Editor Files ---
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.swp
+*~
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vs/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# --- Environment & Secret Hygiene (CRITICAL) ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.cert
+appsettings.Development.json
+appsettings.Production.json
+appsettings.*.local.json
+secrets.json
+
+# --- .NET 10 / C# Build Artifacts ---
+**/[Bb]in/
+**/[Oo]bj/
+**/[Dd]ebug/
+**/[Rr]elease/
+**/[Aa]rtifacts/
+[Tt]est[Rr]esults/
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# --- Node.js / React 19 / Vite Artifacts ---
+**/node_modules/
+**/dist/
+**/build/
+**/coverage/
+.npm/
+.pnpm-store/
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Docker & Container Local Volumes (Zero Host Resource Leakage) ---
+deploy/data/
+postgres_data/
+redis_data/
+minio_data/
+keycloak_data/
+mailpit_data/
+*.log
+logs/
+
+# --- Temporary & Scratch Dumps ---
+scratch/
+tmp/
+temp/
