@@ -22,7 +22,7 @@ public static class DependencyInjection
 
         // 3. PostgreSQL Database Registration
         var connectionString = configuration.GetConnectionString("DefaultConnection") 
-            ?? "Host=localhost;Port=5432;Database=threadflow_db;Username=threadflow_admin;Password=ThreadFlowDevSecure2026!";
+            ?? "Host=localhost;Port=5433;Database=threadflow_db;Username=threadflow_admin;Password=ThreadFlowDevSecure2026!";
 
         services.AddDbContext<ApplicationDbContext>((sp, options) =>
         {
