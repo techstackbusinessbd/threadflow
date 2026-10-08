@@ -101,8 +101,10 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
         modelBuilder.Entity<User>(b =>
         {
             b.HasIndex(x => new { x.TenantId, x.Email }).IsUnique();
+            b.HasIndex(x => new { x.TenantId, x.Username }).IsUnique();
             b.HasIndex(x => x.KeycloakUserId).IsUnique();
         });
+
 
         modelBuilder.Entity<Permission>(b =>
         {
