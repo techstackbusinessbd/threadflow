@@ -87,18 +87,18 @@
   - *DoD*: ডোমেন এনটিটি ভ্যালিডেশন এবং সলিউশন জিরো এররে বিল্ড হওয়া (ভেরিফাইড: `0 Warning(s), 0 Error(s)`).
   - **Status**: `✅ COMPLETED & VERIFIED (All Core Entities & Multi-Tenancy Models Compiled)`
 
-- [ ] **Step 2.3**: **EF Core 10 `ApplicationDbContext` ও গ্লোবাল কোয়েরি ফিল্টার সেটআপ**
+- [x] **Step 2.3**: **EF Core 10 `ApplicationDbContext` ও গ্লোবাল কোয়েরি ফিল্টার সেটআপ**
   - `TenantId`, `IsDeleted`, এবং `IsDemo` গ্লোবাল কোয়েরি ফিল্টার ইনজেকশন।
-  - `TenantInterceptor` ও `AuditableEntityInterceptor`।
-  - Dapper হাই-স্পিড কুয়েরি হেল্পার।
-  - *DoD*: মাল্টি-টেন্যান্ট আইসোলেশন ইন্টারসেপ্টর ও ডিবি কনটেক্সট টেস্ট সফল।
-  - **Status**: `🔒 LOCKED (Awaiting Boss's signal to start Step 2.3)`
+  - `TenantInterceptor` ও `AuditableEntityInterceptor` (অটো অডিট ও সফট ডিলিট ট্র্যাকিং)।
+  - PostgreSQL snake_case নেমিং ও কনকারেন্সি টোকেন ম্যাপিং।
+  - *DoD*: মাল্টি-টেন্যান্ট আইসোলেশন ইন্টারসেপ্টর ও ডিবি কনটেক্সট টেস্ট সফল (ভেরিফাইড: `0 Warning(s), 0 Error(s)`).
+  - **Status**: `✅ COMPLETED & VERIFIED (ApplicationDbContext & Multi-Tenant Interceptors Active)`
 
 - [ ] **Step 2.4**: **ইনিশিয়াল ডেটাবেজ মাইগ্রেশন ও বেস সিডিং ফ্রেমওয়ার্ক**
   - প্রথম মাইগ্রেশন জেনারেশন: `Initial_Core_Topology_And_Tenancy`
-  - রুট টেন্যান্ট (`Apex Group`), সুপার অ্যাডমিন ইউজার, কারেন্সি ও UOM মাস্টার ডেটা সিড।
+  - রুট টেন্যান্ট (`Apex Group`), সুপার অ্যাডমিন ইউজার, কারেন্সি ও UOM মাস্টার ডেটা সিড (`SystemBootstrapSeeder` vs `DevelopmentDemoSeeder` উইথ `SeedDemoData` ফ্ল্যাগ)।
   - *DoD*: ডেটাবেজে স্কিমা তৈরি ও সফল সিডিং ভেরিফিকেশন।
-  - **Status**: `🔒 LOCKED (Blocked by Step 2.3)`
+  - **Status**: `🔒 LOCKED (Awaiting Boss's signal to start Step 2.4)`
 
 - [ ] **Step 2.5**: **WebApi হোস্ট পাইপলাইন ও সিকিউরিটি মিডলওয়্যার কনফিগারেশন**
   - `TenantResolutionMiddleware` (`X-Tenant-Id` ও Subdomain রিজলভার)
